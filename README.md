@@ -1,3 +1,5 @@
+I am not the original author of these tools im just modifying the specs to lear.
+
 # crypto 💸
 
 A few little helper tools across the crypto world.
