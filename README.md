@@ -1,4 +1,4 @@
-I am not the original author of these tools im just modifying the specs to lear.
+I am not the original author of these tools im just modifying the specs to learn.
 
 # crypto 💸
 
