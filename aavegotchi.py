@@ -4,7 +4,7 @@ import pandas as pd
 import requests
 
 portals_url ='https://api.aavegotchi.land/open_portal_listing?desired_traits=x,x,x,x,x,x&order_by=min_brs'
-gotchi_url ='https://api.aavegotchi.land/gotchi_listing?desired_traits=x,x,x,x,x,x&brs_min=0&brs_max=1000&price_min=0&&price_max=1000000&order_by=brs'
+gotchi_url ='https://api.aavegotchi.land/gotchi?desired_traits=low_bracket,low_bracket,x,low_bracket,x,x&order_by=brs'
 
 def get_data(url):
     response = requests.get(url=url)
