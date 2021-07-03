@@ -22,13 +22,9 @@ gotchi['mbrs'] = pd.to_numeric(gotchi['mbrs'])
 gotchi_display = gotchi[['name','brs', 'mbrs','gotchi_url', 'staked']]
 gotchi_display.set_index('name', inplace=True)
 
-st.title('👻 Aavegotchi bargain hunter 💰')
-st.write("Find the best value gotchi on the market. \
-Aimed at new frens wanting to get into it without spending a fortune!")
-
 st.write("## Gotchi with collateral")
 st.write("Top 6000, sorted by staked")
-st.table(gotchi_display.sort_values(by=['staked'], ascending=False).head(6000))
+st.table(gotchi_display.sort_values(by=['staked'], ascending=False).head(500))
 
 st.write("## Open portals for sale")
 st.write("Top 20, sorted by rarity per GHST")
