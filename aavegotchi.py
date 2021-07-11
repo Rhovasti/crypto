@@ -23,6 +23,12 @@ gotchi['mbrs'] = pd.to_numeric(gotchi['mbrs'])
 gotchi['mbrs/ghst'] = gotchi.mbrs / gotchi.price
 gotchi_display = gotchi[['name','price','brs', 'mbrs','listing_url', 'mbrs/ghst']]
 gotchi_display.set_index('name', inplace=True)
+gotchi2['brs'] = pd.to_numeric(gotchi['brs'])
+gotchi2['mbrs'] = pd.to_numeric(gotchi['mbrs'])
+gotchi2['mbrs/ghst'] = gotchi.mbrs / gotchi.price
+gotchi2_display = gotchi[['name','price','brs', 'mbrs']]
+gotchi2_display.set_index('name', inplace=True)
+
 
 st.title('👻 Aavegotchi bargain hunter 💰')
 st.write("Find the best value gotchi on the market. \
@@ -30,11 +36,11 @@ Aimed at new frens wanting to get into it without spending a fortune!")
 
 st.write("## Gotchi for sale")
 st.write("Top 500, sorted by brs")
-st.table(gotchi_display.sort_values(by=['brs'], ascending=False).head(500))
+st.table(gotchi_display.sort_values(by=['brs'], ascending=False).head(20))
 
 st.write("## Open portals for sale")
 st.write("Top 20, sorted by rarity per GHST")
-st.table(portals_display.sort_values(by=['brs'], ascending=False).head(500))
+st.table(portals_display.sort_values(by=['brs'], ascending=False).head(20))
 
 st.write("## Gotchies top 500 for reference")
 st.write("Top 500, sorted by brs")
