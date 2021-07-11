@@ -27,8 +27,7 @@ gotchi_display.set_index('name', inplace=True)
 gotchi2 = pd.DataFrame(get_data(gotchi2_url))
 gotchi2['brs'] = pd.to_numeric(gotchi['brs'])
 gotchi2['mbrs'] = pd.to_numeric(gotchi['mbrs'])
-gotchi2['mbrs/ghst'] = gotchi.mbrs / gotchi.price
-gotchi2_display = gotchi[['name','price','brs', 'mbrs']]
+gotchi2_display = gotchi[['name','brs', 'mbrs']]
 gotchi2_display.set_index('name', inplace=True)
 
 
