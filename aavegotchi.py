@@ -40,8 +40,8 @@ st.write("Top 500, sorted by rarity per GHST")
 st.table(gotchi_display.sort_values(by=['brs'], ascending=False).head(500))
 
 st.write("## Open portals for sale")
-st.write("Top 500, sorted by rarity per GHST")
-st.table(portals_display.sort_values(by=['min_brs'], ascending=False).head(500))
+st.write("Top 20, sorted by rarity per GHST")
+st.table(portals_display.sort_values(by=['brs/ghst'], ascending=False).head(20))
 
 
 st.write("Thanks to aavegotchi.land for the API")
