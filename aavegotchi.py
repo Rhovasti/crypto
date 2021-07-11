@@ -41,7 +41,7 @@ st.table(gotchi_display.sort_values(by=['brs'], ascending=False).head(500))
 
 st.write("## Open portals for sale")
 st.write("Top 100, sorted by rarity per GHST")
-st.table(portals_display.sort_values(by=['brs/ghst'], ascending=False).head(100))
+st.table(portals_display.sort_values(by=['min_brs'], ascending=False).head(100))
 
 st.write("## Top 500 Gotchies for reference")
 st.write("Top 500, sorted by rarity per GHST")
