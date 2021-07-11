@@ -5,6 +5,7 @@ import requests
 
 portals_url ='https://api.aavegotchi.land/open_portal_listing?desired_traits=x,x,x,x,x,x&order_by=min_brs'
 gotchi_url ='https://api.aavegotchi.land/gotchi_listing?desired_traits=x,x,x,x,x,x&brs_min=0&brs_max=1000&price_min=0&&price_max=1000000&order_by=brs'
+gotchi2_url ='https://api.aavegotchi.land/gotchi?desired_traits=x,x,x,x,x,x&brs_min=0&brs_max=1000&price_min=0&&price_max=1000000&order_by=brs'
 
 def get_data(url):
     response = requests.get(url=url)
@@ -34,6 +35,10 @@ st.table(gotchi_display.sort_values(by=['brs'], ascending=False).head(500))
 st.write("## Open portals for sale")
 st.write("Top 20, sorted by rarity per GHST")
 st.table(portals_display.sort_values(by=['brs'], ascending=False).head(500))
+
+st.write("## Gotchies top 500 for reference")
+st.write("Top 500, sorted by brs")
+st.table(gotchi2_display.sort_values(by=['brs'], ascending=False).head(500))
 
 
 st.write("Thanks to aavegotchi.land for the API")
