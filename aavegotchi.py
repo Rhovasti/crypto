@@ -36,16 +36,12 @@ st.write("Find the best value gotchi on the market. \
 Aimed at new frens wanting to get into it without spending a fortune!")
 
 st.write("## Gotchi for sale")
-st.write("Top 500, sorted by brs")
-st.table(gotchi_display.sort_values(by=['brs'], ascending=False).head(20))
+st.write("Top 20, sorted by rarity per GHST")
+st.table(gotchi_display.sort_values(by=['mbrs/ghst'], ascending=False).head(20))
 
 st.write("## Open portals for sale")
 st.write("Top 20, sorted by rarity per GHST")
-st.table(portals_display.sort_values(by=['brs'], ascending=False).head(20))
-
-st.write("## Gotchies top 500 for reference")
-st.write("Top 500, sorted by brs")
-st.table(gotchi2_display.sort_values(by=['brs'], ascending=False).head(500))
+st.table(portals_display.sort_values(by=['brs/ghst'], ascending=False).head(20))
 
 
 st.write("Thanks to aavegotchi.land for the API")
