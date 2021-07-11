@@ -4,7 +4,7 @@ import pandas as pd
 import requests
 
 portals_url ='https://api.aavegotchi.land/open_portal_listing?desired_traits=x,x,x,x,x,x&order_by=min_brs'
-gotchi_url ='https://api.aavegotchi.land/gotchi?desired_traits=low_bracket,low_bracket,x,low_bracket,x,x&order_by=brs'
+gotchi_url ='https://api.aavegotchi.land/gotchi_listing?desired_traits=x,x,x,x,x,x&brs_min=0&brs_max=1000&price_min=0&&price_max=1000000&order_by=brs'
 
 def get_data(url):
     response = requests.get(url=url)
@@ -19,16 +19,22 @@ portals_display.set_index('id', inplace=True)
 gotchi = pd.DataFrame(get_data(gotchi_url))
 gotchi['brs'] = pd.to_numeric(gotchi['brs'])
 gotchi['mbrs'] = pd.to_numeric(gotchi['mbrs'])
-gotchi_display = gotchi[['name','brs', 'mbrs','gotchi_url', 'staked']]
+gotchi['mbrs/ghst'] = gotchi.mbrs / gotchi.price
+gotchi_display = gotchi[['name','price','brs', 'mbrs','listing_url', 'mbrs/ghst']]
 gotchi_display.set_index('name', inplace=True)
 
-st.write("## Gotchi with collateral")
-st.write("Top 6000, sorted by staked")
-st.table(gotchi_display.sort_values(by=['staked'], ascending=False).head(500))
+st.title('👻 Aavegotchi bargain hunter 💰')
+st.write("Find the best value gotchi on the market. \
+Aimed at new frens wanting to get into it without spending a fortune!")
+
+st.write("## Gotchi for sale")
+st.write("Top 500, sorted by brs")
+st.table(gotchi_display.sort_values(by=['brs'], ascending=False).head(500))
 
 st.write("## Open portals for sale")
 st.write("Top 20, sorted by rarity per GHST")
-st.table(portals_display.sort_values(by=['max_brs'], ascending=False).head(500))
+st.table(portals_display.sort_values(by=['brs'], ascending=False).head(500))
 
 
 st.write("Thanks to aavegotchi.land for the API")
+© 2021 GitHub, Inc.
