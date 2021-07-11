@@ -37,4 +37,3 @@ st.table(portals_display.sort_values(by=['brs'], ascending=False).head(500))
 
 
 st.write("Thanks to aavegotchi.land for the API")
-© 2021 GitHub, Inc.
